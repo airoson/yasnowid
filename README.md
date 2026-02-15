@@ -1,6 +1,6 @@
 ## Yet Another Snowflake ID Generator written in Go
 This project is a high-performance, lock-free Snowflake ID generator for Go. It uses atomic operations to ensure thread safety and provides built-in protection against system clock drift.
-**Structure**
+### Structure
 Each ID has the same structure:
 |63|62-22|21-12|11-0|
 |---|---|---|---|
@@ -9,7 +9,7 @@ Each ID has the same structure:
 *timestamp* is a regular UNIX timestamp in millisecond minus 1288834974657. 
 *counter* is incremented on each request and drops to 0 every milliseconds.
 
-**Benchmark results for 1/4/12 Cores**
+### Benchmark results for 1/4/12 Cores
 ```
 goos: windows
 goarch: amd64
@@ -21,7 +21,7 @@ BenchmarkGenerator-12            4767974               254.3 ns/op
 PASS
 ok      github.com/airoson/yasnowid     4.720s
 ```
-**Sample usage**
+### Sample usage
 The usage is straightforward:
 ```go
 gen, err := yasnowid.NewGenerator(101)
